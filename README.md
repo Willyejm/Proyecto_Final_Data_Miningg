@@ -11,18 +11,10 @@ Comprender y optimizar el comportamiento de ventas de Adventure Works a través 
 •	Apoyar decisiones estratégicas como promociones, gestión de inventarios o expansión regional.
 
 # Preguntas a responder
-•	¿Cuáles son los productos más vendidos y los más rentables?
+•	¿Cuáles son los productos o categorías más vendidos por período?
 
-•	¿Qué subcategorías y categorías lideran las ventas?
+•	¿Qué tipo de clientes generan mayores ventas?
 
-•	¿Cuál es el comportamiento de ventas por año, trimestre o mes?
+•	¿Existen patrones estacionales o por región en el comportamiento de compra?
 
-•	¿Qué regiones o países tienen mayor volumen de ventas?
-
-•	¿Qué clientes son los más importantes en términos de ingresos?
-
-•	¿Existe estacionalidad o tendencias temporales en las ventas?
-
-•	¿Cuál es el margen de ganancia por producto o categoría?
-
-•	¿Hay correlación entre el tamaño del producto y las ventas?
+•	¿Podemos predecir el monto de ventas futuras por cliente o categoría?
