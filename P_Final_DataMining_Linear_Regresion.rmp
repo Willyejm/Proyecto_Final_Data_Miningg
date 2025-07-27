@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="11.0.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="11.0.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="11.0.000" expanded="true" height="68" name="Read CSV" width="90" x="179" y="136">
+        <parameter key="csv_file" value="C:\Users\itlaarcom\Downloads\Archivo_Limpio (2).csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="multiline_text" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="true"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value="yyyy-MM-dd"/>
+        <parameter key="use_header_row" value="true"/>
+        <parameter key="header_row" value="1"/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="America/Guayaquil"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="windows-1252"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="codproducto.true.integer.attribute"/>
+          <parameter key="1" value="codcliente.true.integer.attribute"/>
+          <parameter key="2" value="cantidad.true.integer.attribute"/>
+          <parameter key="3" value="precio.true.real.attribute"/>
+          <parameter key="4" value="coste.true.real.attribute"/>
+          <parameter key="5" value="venta.true.real.attribute"/>
+          <parameter key="6" value="xiva.true.integer.attribute"/>
+          <parameter key="7" value="iva.true.real.attribute"/>
+          <parameter key="8" value="fecha_orden.true.date.attribute"/>
+          <parameter key="9" value="idcliente.true.integer.attribute"/>
+          <parameter key="10" value="codgeografia.true.integer.attribute"/>
+          <parameter key="11" value="nombre.true.polynominal.attribute"/>
+          <parameter key="12" value="nombres2.true.polynominal.attribute"/>
+          <parameter key="13" value="apellido.true.polynominal.attribute"/>
+          <parameter key="14" value="nacimiento.true.date.attribute"/>
+          <parameter key="15" value="estadocivil.true.polynominal.attribute"/>
+          <parameter key="16" value="genero.true.polynominal.attribute"/>
+          <parameter key="17" value="ingresos.true.integer.attribute"/>
+          <parameter key="18" value="hijos.true.integer.attribute"/>
+          <parameter key="19" value="educacion.true.polynominal.attribute"/>
+          <parameter key="20" value="ocupacion.true.polynominal.attribute"/>
+          <parameter key="21" value="idproducto.true.integer.attribute"/>
+          <parameter key="22" value="codsubcategoria.true.real.attribute"/>
+          <parameter key="23" value="producto.true.polynominal.attribute"/>
+          <parameter key="24" value="color.true.polynominal.attribute"/>
+          <parameter key="25" value="preciocatalogo.true.real.attribute"/>
+          <parameter key="26" value="tamanio.true.polynominal.attribute"/>
+          <parameter key="27" value="rangotamanio.true.polynominal.attribute"/>
+          <parameter key="28" value="linea.true.polynominal.attribute"/>
+          <parameter key="29" value="modelo.true.polynominal.attribute"/>
+          <parameter key="30" value="idsubcategoria.true.integer.attribute"/>
+          <parameter key="31" value="subcategorÃ­a.true.polynominal.attribute"/>
+          <parameter key="32" value="codcategoria.true.integer.attribute"/>
+          <parameter key="33" value="idcategoria.true.integer.attribute"/>
+          <parameter key="34" value="categoria.true.polynominal.attribute"/>
+          <parameter key="35" value="idgeografia.true.integer.attribute"/>
+          <parameter key="36" value="pais.true.polynominal.attribute"/>
+          <parameter key="37" value="ciudad.true.polynominal.attribute"/>
+          <parameter key="38" value="fecha.true.date.attribute"/>
+          <parameter key="39" value="dia.true.integer.attribute"/>
+          <parameter key="40" value="mes.true.polynominal.attribute"/>
+          <parameter key="41" value="numero_mes.true.integer.attribute"/>
+          <parameter key="42" value="anio.true.integer.attribute"/>
+          <parameter key="43" value="edad.true.integer.attribute"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="blending:select_attributes" compatibility="11.0.000" expanded="true" height="82" name="Select Attributes" width="90" x="179" y="238">
+        <parameter key="type" value="include attributes"/>
+        <parameter key="attribute_filter_type" value="a subset"/>
+        <parameter key="select_attribute" value=""/>
+        <parameter key="select_subset" value="cantidad␞estadocivil␞genero␞precio␞venta"/>
+        <parameter key="also_apply_to_special_attributes_(id,_label..)" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:set_role" compatibility="11.0.000" expanded="true" height="82" name="Set Role" width="90" x="179" y="340">
+        <list key="set_roles">
+          <parameter key="venta" value="label"/>
+        </list>
+      </operator>
+      <operator activated="true" class="nominal_to_numerical" compatibility="11.0.000" expanded="true" height="103" name="Nominal to Numerical" width="90" x="179" y="442">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="nominal"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="file_path"/>
+        <parameter key="block_type" value="single_value"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="single_value"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="coding_type" value="dummy coding"/>
+        <parameter key="use_comparison_groups" value="false"/>
+        <list key="comparison_groups"/>
+        <parameter key="unexpected_value_handling" value="all 0 and warning"/>
+        <parameter key="use_underscore_in_name" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:split_data" compatibility="11.0.000" expanded="true" height="103" name="Split Data" width="90" x="380" y="442">
+        <enumeration key="partitions">
+          <parameter key="ratio" value="0.7"/>
+          <parameter key="ratio" value="0.3"/>
+        </enumeration>
+        <parameter key="sampling_type" value="automatic"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="linear_regression" compatibility="11.0.000" expanded="true" height="103" name="Linear Regression_ENTRENAMIENTO" width="90" x="648" y="136">
+        <parameter key="feature_selection" value="M5 prime"/>
+        <parameter key="alpha" value="0.05"/>
+        <parameter key="max_iterations" value="10"/>
+        <parameter key="forward_alpha" value="0.05"/>
+        <parameter key="backward_alpha" value="0.05"/>
+        <parameter key="eliminate_colinear_features" value="true"/>
+        <parameter key="min_tolerance" value="0.05"/>
+        <parameter key="use_bias" value="true"/>
+        <parameter key="ridge" value="1.0E-8"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="11.0.000" expanded="true" height="82" name="Apply Model_PRUEBA" width="90" x="648" y="289">
+        <list key="application_parameters"/>
+      </operator>
+      <operator activated="true" class="performance_regression" compatibility="11.0.000" expanded="true" height="82" name="Performance (2)" width="90" x="648" y="442">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="root_mean_squared_error" value="true"/>
+        <parameter key="absolute_error" value="true"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="true"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="prediction_average" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Select Attributes" to_port="example set input"/>
+      <connect from_op="Select Attributes" from_port="example set output" to_op="Set Role" to_port="example set input"/>
+      <connect from_op="Set Role" from_port="example set output" to_op="Nominal to Numerical" to_port="example set input"/>
+      <connect from_op="Nominal to Numerical" from_port="example set output" to_op="Split Data" to_port="example set"/>
+      <connect from_op="Split Data" from_port="partition 1" to_op="Linear Regression_ENTRENAMIENTO" to_port="training set"/>
+      <connect from_op="Split Data" from_port="partition 2" to_op="Apply Model_PRUEBA" to_port="unlabelled data"/>
+      <connect from_op="Linear Regression_ENTRENAMIENTO" from_port="model" to_op="Apply Model_PRUEBA" to_port="model"/>
+      <connect from_op="Apply Model_PRUEBA" from_port="labelled data" to_op="Performance (2)" to_port="labelled data"/>
+      <connect from_op="Performance (2)" from_port="performance" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <description align="center" color="yellow" colored="false" height="471" resized="true" width="287" x="557" y="94"/>
+      <description align="center" color="orange" colored="true" height="476" resized="true" width="326" x="161" y="92"/>
+      <description align="center" color="yellow" colored="false" height="69" resized="true" width="685" x="161" y="20">Este proceso tiene como objetivo construir y evaluar un modelo predictivo basado en regresi&amp;#243;n lineal para predecir una variable objetivo (como el monto de ventas, ingresos, etc.) a partir de un conjunto de atributos de entrada (como edad, tipo de cliente, categor&amp;#237;a de producto, entre otros).</description>
+    </process>
+  </operator>
+</process>
